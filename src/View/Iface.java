@@ -73,7 +73,7 @@ public class Iface extends HttpServlet {
 
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.html");
+			response.sendRedirect("index.html");
 		}
 	}
 

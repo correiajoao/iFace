@@ -84,7 +84,7 @@ public class ShowMessages extends HttpServlet {
 
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.html");
+			response.sendRedirect("Iface.jsp");
 		}
 	}
 

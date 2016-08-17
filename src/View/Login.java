@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 				}
 				
 		} catch (Exception e) {
-			response.sendRedirect("login.html");
+			response.sendRedirect("index.html");
 		}
 	}
 

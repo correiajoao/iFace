@@ -91,7 +91,7 @@ public class EditProfile extends HttpServlet {
 
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.html");
+			response.sendRedirect("Iface.jsp");
 		}
 	}
 
@@ -111,21 +111,24 @@ public class EditProfile extends HttpServlet {
 			String city = request.getParameter("city");
 			String gender = request.getParameter("gender");
 			String status = request.getParameter("status");
-
-			user = Database.getInstance().readUser(user.getLogin());
-			user.setPassword(password);
-			user.getProfile().setCity(city);
-			user.getProfile().setGender(gender);
-			user.getProfile().setName(name);
-			user.getProfile().setStatus(status);
-
-			Database.getInstance().updateUser(user);
-			session.setAttribute("user", user);
-			response.sendRedirect("Iface.jsp");
+			
+			if(!password.equals("")){
+				user = Database.getInstance().readUser(user.getLogin());
+				user.setPassword(password);
+				user.getProfile().setCity(city);
+				user.getProfile().setGender(gender);
+				user.getProfile().setName(name);
+				user.getProfile().setStatus(status);
+				
+				Database.getInstance().updateUser(user);
+				session.setAttribute("user", user);
+				response.sendRedirect("Iface.jsp");
+			}else{
+				response.sendRedirect("invalidOperation.html");
+			}
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("invalidData.html");
+			response.sendRedirect("invalidOperation.html");
 		}
 	}
-
 }

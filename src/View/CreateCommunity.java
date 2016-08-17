@@ -54,11 +54,14 @@ public class CreateCommunity extends HttpServlet {
 
 			String name = request.getParameter("name");
 			String description = request.getParameter("description");
-
-			Community community = new Community(0, name, description,
-					new ArrayList<User>(), new ArrayList<Post>(), user);
-			Database.getInstance().createCommunity(community);
-			response.sendRedirect("Iface.jsp");
+			
+			if(!name.equals("") && !description.equals("")){
+				Community community = new Community(0, name, description, new ArrayList<User>(), new ArrayList<Post>(), user);
+				Database.getInstance().createCommunity(community);
+				response.sendRedirect("Iface.jsp");
+			}else{
+				response.sendRedirect("invalidOperation.html");
+			}
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			response.sendRedirect("Iface.jsp");

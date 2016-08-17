@@ -106,7 +106,10 @@ public class ShowCommunity extends HttpServlet {
 			out.print("</body></html>");
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.html");
+			response.sendRedirect("Iface.jsp");
+		} catch (NumberFormatException e){
+			e.printStackTrace();
+			response.sendRedirect("ShowCommunities.jsp");
 		}
 	}
 

@@ -44,7 +44,6 @@ public class ManageMessage extends HttpServlet {
 			String redirect = request.getParameter("redirect");
 
 			int userInt = Integer.parseInt(userString);
-
 			User userAux = Database.getInstance().readUser(userInt);
 
 			if (option.equals("sendMessage")) {
@@ -70,7 +69,10 @@ public class ManageMessage extends HttpServlet {
 			response.sendRedirect(redirect);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.html");
+			response.sendRedirect("Iface.jsp");
+		} catch (NumberFormatException e){
+			e.printStackTrace();
+			response.sendRedirect("ShowMessages.jsp");
 		}
 	}
 

@@ -74,7 +74,7 @@ public class DeleteUser extends HttpServlet {
 
 			Database.getInstance().updateUser(user);
 			Database.getInstance().deleteUser(user);
-			response.sendRedirect("login.html");
+			response.sendRedirect("index.html");
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			response.sendRedirect("Iface.jsp");

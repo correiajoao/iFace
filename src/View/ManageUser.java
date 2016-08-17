@@ -82,7 +82,10 @@ public class ManageUser extends HttpServlet {
 
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.html");
+			response.sendRedirect("Iface.jsp");
+		} catch (NumberFormatException e){
+			e.printStackTrace();
+			response.sendRedirect("ShowUsers.jsp");
 		}
 	}
 

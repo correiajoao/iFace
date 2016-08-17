@@ -47,6 +47,8 @@ public class CreateAccount extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
 		try {
+			request.setCharacterEncoding("UTF-8");
+			
 			String login = request.getParameter("login");
 			String password = request.getParameter("password");
 			String name = request.getParameter("name");
@@ -58,7 +60,7 @@ public class CreateAccount extends HttpServlet {
 			
 			if (Database.getInstance().validateLogin(user) && !login.equals("") && !password.equals("")) {
 				Database.getInstance().createUser(user);
-				response.sendRedirect("login.html");
+				response.sendRedirect("index.html");
 			} else {
 				response.sendRedirect("invalidData.html");
 			}

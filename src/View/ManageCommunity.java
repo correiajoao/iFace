@@ -74,7 +74,10 @@ public class ManageCommunity extends HttpServlet {
 			response.sendRedirect(redirect);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.html");
+			response.sendRedirect("index.html");
+		} catch (NumberFormatException e){
+			e.printStackTrace();
+			response.sendRedirect("ShowCommunities.jsp");
 		}
 	}
 

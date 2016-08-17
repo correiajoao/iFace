@@ -1,8 +1,9 @@
 body {
 	font-family: Bookman;
 	background-image: url("background.jpg");
-	background-position: center;
-	background-repeat: repeat;
+	background-attachment:scroll;
+	background-position:left;
+	background-repeat: repeat-x;
 }
 
 ul {
@@ -34,7 +35,6 @@ h1, h2, h3, h4, h5 {
 	font-family: fantasy;
 	text-align: center;
 	padding-top: 30px;
-	text-align: center;
 }
 
 form, a {
